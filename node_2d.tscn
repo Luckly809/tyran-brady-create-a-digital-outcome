@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://d224ya7nx2yhx"]
+
+[ext_resource type="Texture2D" uid="uid://dsq75m1053hv4" path="res://Background (1).png" id="1_d21ai"]
+[ext_resource type="Script" uid="uid://7qrnw55ywhe0" path="res://node_2d.gd" id="1_ir8iy"]
+[ext_resource type="PackedScene" uid="uid://bsndx0dr3jjov" path="res://Mob.tscn" id="2_4d7sh"]
+[ext_resource type="Script" uid="uid://b27n0gm0h0n7x" path="res://character_body_2d.gd" id="2_q6r6c"]
+[ext_resource type="Script" uid="uid://df3sqvdxf2pib" path="res://area_2d.gd" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://dnxviujxw8yx0" path="res://character2.png" id="3_rj586"]
+[ext_resource type="Texture2D" uid="uid://bnsitqhenkvh4" path="res://Fireball frame 1.png" id="5_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://cjfiyxknauaae" path="res://Fireball frame 2.png" id="6_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://1whui4elff8n" path="res://Fireball frame 3.png" id="7_hqns4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
+radius = 65.18
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0ka3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4d7sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ir8iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hqns4")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d21ai"]
+radius = 35.014282
+
+[sub_resource type="Curve2D" id="Curve2D_hqns4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, 181.80766, 0, 0, 0, 0, -1, 20.375, 0, 0, 0, 0, -2, 462.3557)
+}
+point_count = 3
+
+[node name="Node2D" type="Node2D" unique_id=1037522292]
+script = ExtResource("1_ir8iy")
+mob_scene = ExtResource("2_4d7sh")
+metadata/_edit_horizontal_guides_ = [400.0]
+metadata/_edit_vertical_guides_ = [570.0]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1889967958]
+position = Vector2(576.0001, 324)
+scale = Vector2(0.9000001, 0.81000006)
+texture = ExtResource("1_d21ai")
+
+[node name="CharacterBody2D" type="Area2D" parent="." unique_id=1778159156 groups=["Player"]]
+disable_mode = 2
+script = ExtResource("2_q6r6c")
+
+[node name="Character" type="Sprite2D" parent="CharacterBody2D" unique_id=49536082]
+position = Vector2(574, 420)
+scale = Vector2(0.46250015, 0.47002047)
+texture = ExtResource("3_rj586")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=930577593]
+position = Vector2(577, 419)
+shape = SubResource("CircleShape2D_0e48y")
+
+[node name="Fireball" type="Area2D" parent="." unique_id=1396776639 groups=["Mobs"]]
+position = Vector2(257, 219)
+disable_mode = 2
+collision_layer = 2
+script = ExtResource("3_0hol4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fireball" unique_id=349071799]
+position = Vector2(-1, 4)
+scale = Vector2(0.4125, 0.41875)
+sprite_frames = SubResource("SpriteFrames_x0ka3")
+animation = &"run"
+frame_progress = 0.31091556
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fireball" unique_id=780353062]
+position = Vector2(1, -7)
+shape = SubResource("CircleShape2D_d21ai")
+
+[node name="MobPath" type="Path2D" parent="." unique_id=360178161]
+position = Vector2(3, 83)
+scale = Vector2(1, 0.63803685)
+curve = SubResource("Curve2D_hqns4")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1454421309]
+position = Vector2(-3, 181.80766)
+rotation = -1.5584079
+
+[node name="Timer" type="Timer" parent="." unique_id=993955647]
+wait_time = 0.5
+autostart = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1851335981]
+wait_time = 0.1
+
+[connection signal="body_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_body_entered"]
+[connection signal="area_entered" from="Fireball" to="Fireball" method="_on_fireball_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

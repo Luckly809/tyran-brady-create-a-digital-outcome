@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bsndx0dr3jjov"]
+
+[ext_resource type="Script" uid="uid://d4k87jentekhi" path="res://rigid_body_2d.gd" id="1_r6b5h"]
+[ext_resource type="Texture2D" uid="uid://d277kkctgdb54" path="res://frame_0_delay-0.5s.png" id="2_5bhu7"]
+[ext_resource type="Texture2D" uid="uid://bwnp17df0pwiq" path="res://frame_1_delay-0.5s.png" id="3_ejbti"]
+[ext_resource type="Texture2D" uid="uid://dnb7ggqllkwn6" path="res://frame_2_delay-0.5s.png" id="4_ch7wj"]
+[ext_resource type="Texture2D" uid="uid://bvlvuhwt6547l" path="res://frame_3_delay-0.5s.png" id="5_x4v8o"]
+[ext_resource type="Texture2D" uid="uid://cfdjrt5cgdwfv" path="res://images.png" id="6_w71a0"]
+[ext_resource type="Texture2D" uid="uid://445vpfgymfhg" path="res://images.jpg" id="7_ch7wj"]
+[ext_resource type="Texture2D" uid="uid://d37bbrlkjeuqq" path="res://explo.jpg" id="8_x4v8o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utplx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5bhu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ejbti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ch7wj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x4v8o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.4,
+"texture": ExtResource("6_w71a0")
+}, {
+"duration": 0.4,
+"texture": ExtResource("7_ch7wj")
+}, {
+"duration": 0.4,
+"texture": ExtResource("8_x4v8o")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gguu4"]
+radius = 30.0
+height = 152.0
+
+[node name="Node2D" type="Node2D" unique_id=753076139 groups=["Mobs"]]
+
+[node name="Mob" type="Area2D" parent="." unique_id=1252571799 groups=["Mobs"]]
+position = Vector2(1, 138)
+script = ExtResource("1_r6b5h")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Mob" unique_id=2035370795]
+position = Vector2(-3.4999962, 83.499985)
+scale = Vector2(0.48437497, 0.55312496)
+sprite_frames = SubResource("SpriteFrames_utplx")
+frame_progress = 0.77425265
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob" unique_id=1379333468]
+position = Vector2(-1, 84)
+shape = SubResource("CapsuleShape2D_gguu4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Mob" unique_id=245406652]
+position = Vector2(-1, 85)
+rect = Rect2(-10, -10, 17, 20)
+
+[connection signal="screen_exited" from="Mob/VisibleOnScreenNotifier2D" to="Mob" method="_on_visible_on_screen_notifier_2d_screen_exited"]
