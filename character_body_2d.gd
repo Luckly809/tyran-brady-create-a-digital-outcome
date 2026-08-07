@@ -5,10 +5,10 @@ func _ready() -> void:
 	monitoring = true
 
 
-func _proccess(delta:float) -> void:
+func _proccess(_delta:float) -> void:
 	print(health)
 	if health < 1:
-		
+
 		queue_free()
 		
 

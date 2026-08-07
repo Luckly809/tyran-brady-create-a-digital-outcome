@@ -1,5 +1,6 @@
 extends Area2D
-var health = 21
+var health = 11
+var damaged = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,6 +9,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if damaged:
+		$Sprite2D.play("damage")
+		await get_tree().create_timer(0.2).timeout
+		$Sprite2D.play("default")
 	position += Vector2(1,0) * delta * 100
 	if health < 0:
 		$Sprite2D.play("die")

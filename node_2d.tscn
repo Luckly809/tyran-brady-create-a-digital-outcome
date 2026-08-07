@@ -41,7 +41,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"murder",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -55,7 +55,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d21ai"]
@@ -63,7 +63,7 @@ radius = 35.014282
 
 [sub_resource type="Curve2D" id="Curve2D_hqns4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, 181.80766, 0, 0, 0, 0, -1, 20.375, 0, 0, 0, 0, -3, 573.6346)
+"points": PackedVector2Array(0, 0, 0, 0, -3, 181.80766, 0, 0, 0, 0, -1, 20.375, 0, 0, 0, 0, 0, 186.5096)
 }
 point_count = 3
 
@@ -102,7 +102,7 @@ position = Vector2(-1, 4)
 scale = Vector2(0.4125, 0.41875)
 sprite_frames = SubResource("SpriteFrames_x0ka3")
 animation = &"run"
-frame_progress = 0.71889526
+frame_progress = 0.41335732
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fireball" unique_id=780353062]
 position = Vector2(1, -7)
@@ -117,12 +117,21 @@ curve = SubResource("Curve2D_hqns4")
 position = Vector2(-3, 181.80766)
 rotation = -1.5584079
 
+[node name="MobPath2" type="Path2D" parent="." unique_id=816286114]
+position = Vector2(3, 83)
+scale = Vector2(1, 0.63803685)
+curve = SubResource("Curve2D_hqns4")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath2" unique_id=948686563]
+position = Vector2(-3, 181.80766)
+rotation = -1.5584079
+
 [node name="Timer" type="Timer" parent="." unique_id=993955647]
-wait_time = 0.15
+wait_time = 0.5
 autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=1851335981]
-wait_time = 0.1
+wait_time = 0.5
 
 [connection signal="body_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_body_entered"]
 [connection signal="area_entered" from="Fireball" to="Fireball" method="_on_fireball_area_entered"]

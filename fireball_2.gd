@@ -5,6 +5,7 @@ extends Area2D
 var oldPos = Vector2(0,0)
 var velocity = Vector2(1,-1)
 var oldVelocity = Vector2(0,0)
+
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	$AnimatedSprite2D.play("run")
@@ -19,15 +20,3 @@ func _physics_process(delta: float) -> void:
 	animated_sprite_2d.rotation = (position - oldPos).angle()
 	oldPos = position
 	oldVelocity = velocity
-	
-func _on_fireball_area_entered(area: Area2D) -> void:
-	print("owie, owie")
-	print(area.get_groups())
-	if area.is_in_group("Mobs"):
-		area.health -= 10
-		area.damaged = true
-	if area.is_in_group("Player"):
-		area.health -= 10
-		if area.health < 1:
-			area.queue_free()
-		
