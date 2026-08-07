@@ -16,7 +16,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_x4v8o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"damage",
 "speed": 5.0
 }, {
@@ -33,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_x4v8o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -47,7 +47,7 @@ animations = [{
 "duration": 0.4,
 "texture": ExtResource("8_x4v8o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"die",
 "speed": 5.0
 }]
@@ -56,24 +56,23 @@ animations = [{
 radius = 0.0
 height = 152.0
 
-[node name="Node2D" type="Node2D" unique_id=753076139 groups=["Mobs"]]
-
-[node name="Mob" type="Area2D" parent="." unique_id=1252571799 groups=["Mobs"]]
+[node name="Mob" type="Area2D" unique_id=1252571799 groups=["Mobs"]]
 position = Vector2(1, 138)
 script = ExtResource("1_r6b5h")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Mob" unique_id=2035370795]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2035370795]
 position = Vector2(-3.4999962, 83.499985)
 scale = Vector2(0.48437497, 0.55312496)
 sprite_frames = SubResource("SpriteFrames_utplx")
-animation = &"damage"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob" unique_id=1379333468]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1379333468]
 position = Vector2(-1, 84)
 shape = SubResource("CapsuleShape2D_gguu4")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Mob" unique_id=245406652]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=245406652]
 position = Vector2(-1, 85)
 rect = Rect2(-10, -10, 17, 20)
 
-[connection signal="screen_exited" from="Mob/VisibleOnScreenNotifier2D" to="Mob" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="Node2D" type="Node2D" parent="." unique_id=753076139 groups=["Mobs"]]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
