@@ -13,6 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://b4yvuvmr2e62p" path="res://Fireball explosion1.png" id="8_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://7722aw1d60qq" path="res://Fireball explosion2.png" id="9_nr8wp"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0h7mo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rj586")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 65.18
 
@@ -71,10 +82,10 @@ texture = ExtResource("1_d21ai")
 disable_mode = 2
 script = ExtResource("2_q6r6c")
 
-[node name="Character" type="Sprite2D" parent="CharacterBody2D" unique_id=49536082]
+[node name="Character" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=873242708]
 position = Vector2(1052, 356)
 scale = Vector2(0.46250015, 0.47002047)
-texture = ExtResource("3_rj586")
+sprite_frames = SubResource("SpriteFrames_0h7mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=930577593]
 position = Vector2(1049, 359)
@@ -91,7 +102,7 @@ position = Vector2(-1, 4)
 scale = Vector2(0.4125, 0.41875)
 sprite_frames = SubResource("SpriteFrames_x0ka3")
 animation = &"run"
-frame_progress = 0.7523436
+frame_progress = 0.71889526
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fireball" unique_id=780353062]
 position = Vector2(1, -7)
@@ -107,7 +118,7 @@ position = Vector2(-3, 181.80766)
 rotation = -1.5584079
 
 [node name="Timer" type="Timer" parent="." unique_id=993955647]
-wait_time = 0.16
+wait_time = 0.15
 autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=1851335981]
