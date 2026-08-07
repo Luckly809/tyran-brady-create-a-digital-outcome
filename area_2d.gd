@@ -7,12 +7,12 @@ var velocity = Vector2(1,-1)
 var oldVelocity = Vector2(0,0)
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	animated_sprite_2d.play()
+	animated_sprite_2d.play("run")
 	monitoring = true
 	
 
 func _process(delta: float) -> void:
-	animated_sprite_2d.play()
+	animated_sprite_2d.play("run")
 	velocity += (get_local_mouse_position() * 0.75 * delta)
 	if velocity.length() > 0.1 * get_local_mouse_position().length():
 		velocity = velocity.normalized() * 15
@@ -26,10 +26,8 @@ func _on_fireball_area_entered(area: Area2D) -> void:
 	print(area.get_groups())
 	if area.is_in_group("Mobs"):
 		area.health -= 10
-		print(area.health)
 	if area.is_in_group("Player"):
 		area.health -= 10
-		print(area.health)
 		if area.health < 1:
 			area.queue_free()
 		

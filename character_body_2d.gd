@@ -8,7 +8,9 @@ func _ready() -> void:
 func _proccess(delta:float) -> void:
 	print(health)
 	if health < 1:
+		
 		queue_free()
+		
 
 
 func _on_fireball_area_entered(area: Area2D) -> void:

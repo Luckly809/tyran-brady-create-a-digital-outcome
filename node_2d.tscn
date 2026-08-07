@@ -9,12 +9,29 @@
 [ext_resource type="Texture2D" uid="uid://bnsitqhenkvh4" path="res://Fireball frame 1.png" id="5_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://cjfiyxknauaae" path="res://Fireball frame 2.png" id="6_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://1whui4elff8n" path="res://Fireball frame 3.png" id="7_hqns4"]
+[ext_resource type="Texture2D" uid="uid://bdc1lkuter0ev" path="res://Fireball explosion0.png" id="7_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://b4yvuvmr2e62p" path="res://Fireball explosion1.png" id="8_0h7mo"]
+[ext_resource type="Texture2D" uid="uid://7722aw1d60qq" path="res://Fireball explosion2.png" id="9_nr8wp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
 radius = 65.18
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x0ka3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_x0ka3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0h7mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nr8wp")
+}],
+"loop": true,
+"name": &"murder",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_4d7sh")
@@ -35,7 +52,7 @@ radius = 35.014282
 
 [sub_resource type="Curve2D" id="Curve2D_hqns4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, 181.80766, 0, 0, 0, 0, -1, 20.375, 0, 0, 0, 0, -2, 462.3557)
+"points": PackedVector2Array(0, 0, 0, 0, -3, 181.80766, 0, 0, 0, 0, -1, 20.375, 0, 0, 0, 0, -3, 573.6346)
 }
 point_count = 3
 
@@ -55,12 +72,12 @@ disable_mode = 2
 script = ExtResource("2_q6r6c")
 
 [node name="Character" type="Sprite2D" parent="CharacterBody2D" unique_id=49536082]
-position = Vector2(574, 420)
+position = Vector2(1052, 356)
 scale = Vector2(0.46250015, 0.47002047)
 texture = ExtResource("3_rj586")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=930577593]
-position = Vector2(577, 419)
+position = Vector2(1049, 359)
 shape = SubResource("CircleShape2D_0e48y")
 
 [node name="Fireball" type="Area2D" parent="." unique_id=1396776639 groups=["Mobs"]]
@@ -74,7 +91,7 @@ position = Vector2(-1, 4)
 scale = Vector2(0.4125, 0.41875)
 sprite_frames = SubResource("SpriteFrames_x0ka3")
 animation = &"run"
-frame_progress = 0.31091556
+frame_progress = 0.7523436
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Fireball" unique_id=780353062]
 position = Vector2(1, -7)
@@ -90,7 +107,7 @@ position = Vector2(-3, 181.80766)
 rotation = -1.5584079
 
 [node name="Timer" type="Timer" parent="." unique_id=993955647]
-wait_time = 0.5
+wait_time = 0.16
 autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=1851335981]

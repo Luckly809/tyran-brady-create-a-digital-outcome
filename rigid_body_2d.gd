@@ -1,5 +1,5 @@
 extends Area2D
-var health = 15
+var health = 21
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
