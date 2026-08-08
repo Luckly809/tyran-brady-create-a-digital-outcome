@@ -10,14 +10,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if damaged:
+		damaged = false
 		$Sprite2D.play("damage")
 		await get_tree().create_timer(0.2).timeout
-		$Sprite2D.stop()
 		$Sprite2D.play("default")
 	position += Vector2(1,0) * delta * 100
 	if health < 0:
 		$Sprite2D.play("die")
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.2).timeout
 		queue_free()
 		
 

@@ -24,7 +24,8 @@ func _on_fireball_area_entered(area: Area2D) -> void:
 	print("owie, owie")
 	print(area.get_groups())
 	if area.is_in_group("Mobs"):
-		area.health -= 10
+		area.health -= velocity.length() / 4
+		print(velocity.length())
 		area.damaged = true
 	if area.is_in_group("Player"):
 		area.health -= 10
