@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 	oldVelocity = velocity
 	
 func _on_fireball_area_entered(area: Area2D) -> void:
-	print("owie, owie")
 	print(area.get_groups())
 	if area.is_in_group("Mobs"):
 		area.health -= velocity.length() / 4

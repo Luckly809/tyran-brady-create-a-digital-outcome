@@ -147,6 +147,7 @@ shape = SubResource("CircleShape2D_bx8n8")
 scale = Vector2(0.41509435, 0.41509435)
 texture = ExtResource("14_d2bti")
 
+[connection signal="area_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_body_entered"]
 [connection signal="area_entered" from="Fireball" to="Fireball" method="_on_fireball_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

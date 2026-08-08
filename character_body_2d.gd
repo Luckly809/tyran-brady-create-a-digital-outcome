@@ -13,8 +13,6 @@ func _proccess(_delta:float) -> void:
 		
 
 
-func _on_fireball_area_entered(area: Area2D) -> void:
-	print("owie, owie")
-	print(area.get_groups())
+func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Mobs"):
-		area.queue_free()
+		get_tree().change_scene_to_file("res://Dead.tscn")
