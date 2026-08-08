@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b4y8kfcjmid5v"]
+
+[ext_resource type="Script" uid="uid://clext67qdqdte" path="res://Menu.gd" id="1_uubjt"]
+[ext_resource type="Texture2D" uid="uid://cyd047bh5wgja" path="res://Menu.png" id="2_5yleq"]
+
+[node name="Node2D" type="Node2D" unique_id=973460629]
+script = ExtResource("1_uubjt")
+
+[node name="Menu" type="Sprite2D" parent="." unique_id=1239447012]
+position = Vector2(576.00006, 324)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_5yleq")
