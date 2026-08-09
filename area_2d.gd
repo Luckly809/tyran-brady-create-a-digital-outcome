@@ -26,8 +26,4 @@ func _on_fireball_area_entered(area: Area2D) -> void:
 		area.health -= velocity.length() / 4
 		print(velocity.length())
 		area.damaged = true
-	if area.is_in_group("Player"):
-		area.health -= 10
-		if area.health < 1:
-			area.queue_free()
 		

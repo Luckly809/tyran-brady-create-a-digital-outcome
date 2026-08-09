@@ -22,7 +22,7 @@ animations = [{
 script = ExtResource("1_uubjt")
 
 [node name="Menu" type="AnimatedSprite2D" parent="." unique_id=1091906712]
-position = Vector2(576.5, 322.99997)
-scale = Vector2(0.75065106, 0.7476852)
+position = Vector2(960, 539.99994)
+scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_bx8n8")
 frame_progress = 0.5323452

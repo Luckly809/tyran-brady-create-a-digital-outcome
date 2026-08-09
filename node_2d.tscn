@@ -26,8 +26,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0e48y"]
-radius = 65.18
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_302c4"]
+height = 1018.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x0ka3"]
 animations = [{
@@ -65,9 +65,9 @@ radius = 35.014282
 
 [sub_resource type="Curve2D" id="Curve2D_hqns4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -5, 449.81726, 0, 0, 0, 0, -1, 177.10576, 0, 0, 0, 0, 0, 186.5096)
+"points": PackedVector2Array(0, 0, 0, 0, -385, 554.82684, 0, 0, 0, 0, -392, 300.92303, 0, 0, 0, 0, -380, 137.92308, 0, 0, 0, 0, -386, 43.884613)
 }
-point_count = 3
+point_count = 4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bx8n8"]
 
@@ -78,8 +78,8 @@ metadata/_edit_horizontal_guides_ = [400.0]
 metadata/_edit_vertical_guides_ = [570.0]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1889967958]
-position = Vector2(576.0001, 324)
-scale = Vector2(0.9000001, 0.81000006)
+position = Vector2(576, 324.00003)
+scale = Vector2(1.4999999, 1.35)
 texture = ExtResource("1_d21ai")
 
 [node name="CharacterBody2D" type="Area2D" parent="." unique_id=1778159156 groups=["Player"]]
@@ -87,13 +87,13 @@ disable_mode = 2
 script = ExtResource("2_q6r6c")
 
 [node name="Character" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=873242708]
-position = Vector2(1052, 356)
+position = Vector2(1466.0001, 358)
 scale = Vector2(0.46250015, 0.47002047)
 sprite_frames = SubResource("SpriteFrames_0h7mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=930577593]
-position = Vector2(1049, 359)
-shape = SubResource("CircleShape2D_0e48y")
+position = Vector2(1469, 350)
+shape = SubResource("CapsuleShape2D_302c4")
 
 [node name="Fireball" type="Area2D" parent="." unique_id=1396776639 groups=["Mobs"]]
 position = Vector2(257, 219)
@@ -118,8 +118,8 @@ scale = Vector2(1, 0.63803685)
 curve = SubResource("Curve2D_hqns4")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1454421309]
-position = Vector2(-5, 449.81726)
-rotation = -1.5561298
+position = Vector2(-385, 554.82684)
+rotation = -1.5983589
 
 [node name="MobPath2" type="Path2D" parent="." unique_id=816286114]
 position = Vector2(3, 83)
@@ -127,8 +127,8 @@ scale = Vector2(1, 0.63803685)
 curve = SubResource("Curve2D_hqns4")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath2" unique_id=948686563]
-position = Vector2(-5, 449.81726)
-rotation = -1.5561298
+position = Vector2(-385, 554.82684)
+rotation = -1.5983589
 
 [node name="Timer" type="Timer" parent="." unique_id=993955647]
 wait_time = 0.5
@@ -144,8 +144,12 @@ script = ExtResource("13_nr8wp")
 shape = SubResource("CircleShape2D_bx8n8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=891856787]
+position = Vector2(4.7683716e-07, 1.1920929e-07)
 scale = Vector2(0.41509435, 0.41509435)
 texture = ExtResource("14_d2bti")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=386598435]
+position = Vector2(576, 324)
 
 [connection signal="area_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_body_entered"]

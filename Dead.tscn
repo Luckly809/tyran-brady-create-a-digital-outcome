@@ -7,6 +7,6 @@
 script = ExtResource("1_r2xpf")
 
 [node name="UDead" type="Sprite2D" parent="." unique_id=1870677680]
-position = Vector2(576, 324)
-scale = Vector2(0.75, 0.74999994)
+position = Vector2(960, 540)
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_qxlla")
