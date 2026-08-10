@@ -1,5 +1,5 @@
 extends Area2D
-var health = 21
+var health = 9.5
 var damaged = false
 
 # Called when the node enters the scene tree for the first time.
