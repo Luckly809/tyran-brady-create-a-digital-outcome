@@ -21,9 +21,7 @@ func _physics_process(delta: float) -> void:
 	oldVelocity = velocity
 	
 func _on_fireball_area_entered(area: Area2D) -> void:
-	print(area.get_groups())
 	if area.is_in_group("Mobs"):
-		area.health -= velocity.length() / 4
-		print(velocity.length())
+		area.health -= velocity.length()
 		area.damaged = true
 		
