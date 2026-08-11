@@ -5,6 +5,7 @@ extends Area2D
 var oldPos = Vector2(0,0)
 var velocity = Vector2(1,-1)
 var oldVelocity = Vector2(0,0)
+var dmgMulti = 1
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	$AnimatedSprite2D.play("run")
@@ -22,6 +23,6 @@ func _physics_process(delta: float) -> void:
 	
 func _on_fireball_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Mobs"):
-		area.health -= velocity.length()
+		area.health -= velocity.length() * dmgMulti
 		area.damaged = true
 		
