@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	if health < 0:
 		$Sprite2D.play("die")
 		await get_tree().create_timer(0.2).timeout
-		get_parent().score += 1
+		get_parent().get_parent().score += 1
 		queue_free()
 		
 

@@ -16,7 +16,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_x4v8o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"damage",
 "speed": 5.0
 }, {
@@ -33,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_x4v8o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -47,7 +47,7 @@ animations = [{
 "duration": 0.4,
 "texture": ExtResource("8_x4v8o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"die",
 "speed": 5.0
 }]
@@ -57,7 +57,6 @@ radius = 0.0
 height = 152.0
 
 [node name="Mob" type="Area2D" unique_id=1252571799 groups=["Mobs"]]
-position = Vector2(1, 138)
 script = ExtResource("1_r6b5h")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2035370795]

@@ -10,10 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://cjfiyxknauaae" path="res://Fireball frame 2.png" id="6_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://1whui4elff8n" path="res://Fireball frame 3.png" id="7_hqns4"]
 [ext_resource type="FontFile" uid="uid://oig00iirrnok" path="res://Pixelpurl-0vBPP.ttf" id="12_x0ka3"]
-[ext_resource type="Texture2D" uid="uid://c1uok0qmrpjeq" path="res://red.jpg" id="13_d2bti"]
 [ext_resource type="Script" uid="uid://k8ceuew2o40t" path="res://Cursor.gd" id="13_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://d16ppb13wk7b0" path="res://Cursor.png" id="14_d2bti"]
+[ext_resource type="Texture2D" uid="uid://cq5c1ne1x4yl6" path="res://Red.png" id="14_flf07"]
+[ext_resource type="Script" uid="uid://c7bjflivjgvhg" path="res://ButtonParent.gd" id="14_k73cj"]
 [ext_resource type="Script" uid="uid://odbw1u67b8nk" path="res://Dmg up.gd" id="14_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://biejdw82pfwb4" path="res://Da Pause.png" id="15_d2bti"]
+[ext_resource type="Script" uid="uid://dvdsbviayja58" path="res://enemy_health_down.gd" id="16_fs4d3"]
+[ext_resource type="Texture2D" uid="uid://b3n0ux00noepi" path="res://Green.png" id="16_k73cj"]
+[ext_resource type="Texture2D" uid="uid://cqg8fbipt45fd" path="res://Teal.png" id="17_rjqkl"]
+[ext_resource type="Script" uid="uid://cajoejiyyc2jt" path="res://enemy_speed_down.gd" id="18_7vxoj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0h7mo"]
 animations = [{
@@ -21,7 +27,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_rj586")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -41,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": true,
+"loop": 1,
 "name": &"murder",
 "speed": 6.0
 }, {
@@ -55,7 +61,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_hqns4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 30.0
 }]
@@ -81,6 +87,9 @@ metadata/_edit_vertical_guides_ = [570.0]
 position = Vector2(576, 324.00003)
 scale = Vector2(1.4999999, 1.35)
 texture = ExtResource("1_d21ai")
+
+[node name="MobHolder" type="Node2D" parent="." unique_id=1653442453]
+position = Vector2(-6.1035156e-05, 0)
 
 [node name="CharacterBody2D" type="Area2D" parent="." unique_id=1778159156 groups=["Player"]]
 disable_mode = 2
@@ -121,32 +130,12 @@ curve = SubResource("Curve2D_hqns4")
 position = Vector2(-385, 554.82684)
 rotation = -1.5983589
 
-[node name="MobPath2" type="Path2D" parent="." unique_id=816286114]
-position = Vector2(3, 83)
-scale = Vector2(1, 0.63803685)
-curve = SubResource("Curve2D_hqns4")
-
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath2" unique_id=948686563]
-position = Vector2(-385, 554.82684)
-rotation = -1.5983589
-
 [node name="Timer" type="Timer" parent="." unique_id=993955647]
 wait_time = 0.5
 autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=1851335981]
 wait_time = 0.5
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1619218246]
-script = ExtResource("13_nr8wp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=664124971]
-shape = SubResource("CircleShape2D_bx8n8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=891856787]
-position = Vector2(4.7683716e-07, 1.1920929e-07)
-scale = Vector2(0.41509435, 0.41509435)
-texture = ExtResource("14_d2bti")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=386598435]
 position = Vector2(576, 324)
@@ -162,14 +151,56 @@ text = "Score: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=492503314]
-offset_left = -63.0
-offset_top = -92.0
-offset_right = 313.0
-offset_bottom = 658.0
-texture_normal = ExtResource("13_d2bti")
-stretch_mode = 3
+[node name="DaPause" type="Sprite2D" parent="." unique_id=696242915]
+visible = false
+position = Vector2(576.00006, 324)
+scale = Vector2(0.7378469, 0.7378472)
+texture = ExtResource("15_d2bti")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=296432812]
+script = ExtResource("14_k73cj")
+
+[node name="Dmg Up" type="Button" parent="Node2D" unique_id=1320798949]
+visible = false
+offset_left = 186.0
+offset_top = 144.0
+offset_right = 450.0
+offset_bottom = 408.0
+disabled = true
+action_mode = 0
+icon = ExtResource("14_flf07")
 script = ExtResource("14_ta5nu")
+
+[node name="Enemy Health Down" type="Button" parent="Node2D" unique_id=1496312758]
+visible = false
+offset_left = 442.0
+offset_top = 144.0
+offset_right = 706.0
+offset_bottom = 408.0
+disabled = true
+icon = ExtResource("16_k73cj")
+script = ExtResource("16_fs4d3")
+
+[node name="Enemy Speed Down" type="Button" parent="Node2D" unique_id=1215128562]
+visible = false
+offset_left = 698.0
+offset_top = 144.0
+offset_right = 962.0
+offset_bottom = 408.0
+disabled = true
+icon = ExtResource("17_rjqkl")
+script = ExtResource("18_7vxoj")
+
+[node name="Cursor" type="Area2D" parent="." unique_id=1619218246]
+script = ExtResource("13_nr8wp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor" unique_id=664124971]
+shape = SubResource("CircleShape2D_bx8n8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cursor" unique_id=891856787]
+position = Vector2(4.7683716e-07, 1.1920929e-07)
+scale = Vector2(0.41509435, 0.41509435)
+texture = ExtResource("14_d2bti")
 
 [connection signal="area_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_body_entered"]
