@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bnsitqhenkvh4" path="res://Fireball frame 1.png" id="5_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://cjfiyxknauaae" path="res://Fireball frame 2.png" id="6_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://1whui4elff8n" path="res://Fireball frame 3.png" id="7_hqns4"]
-[ext_resource type="FontFile" uid="uid://oig00iirrnok" path="res://Pixelpurl-0vBPP.ttf" id="12_x0ka3"]
 [ext_resource type="Script" uid="uid://k8ceuew2o40t" path="res://Cursor.gd" id="13_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://d16ppb13wk7b0" path="res://Cursor.png" id="14_d2bti"]
 
@@ -150,15 +149,11 @@ texture = ExtResource("14_d2bti")
 position = Vector2(576, 324)
 
 [node name="Label" type="Label" parent="." unique_id=736257245]
-offset_left = -312.0
-offset_top = -198.0
-offset_right = 499.0
-offset_bottom = -27.0
-theme_override_fonts/font = ExtResource("12_x0ka3")
-theme_override_font_sizes/font_size = 80
+offset_left = -344.0
+offset_top = -196.0
+offset_right = -229.0
+offset_bottom = -173.0
 text = "Score: "
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="area_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_body_entered"]
