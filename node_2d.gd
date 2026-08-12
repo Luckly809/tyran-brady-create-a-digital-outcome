@@ -95,7 +95,7 @@ func dmg_up() -> void:
 
 func enemy_health_down() -> void:
 	unshop()
-	toughness *= 0.7
+	toughness *= 0.85
 	print(toughness)
 
 
