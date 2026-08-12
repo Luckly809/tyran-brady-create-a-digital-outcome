@@ -27,12 +27,13 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_rj586")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_302c4"]
+radius = 63.0
 height = 1018.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x0ka3"]
@@ -47,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": 1,
+"loop": true,
 "name": &"murder",
 "speed": 6.0
 }, {
@@ -61,7 +62,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_hqns4")
 }],
-"loop": 1,
+"loop": true,
 "name": &"run",
 "speed": 30.0
 }]
@@ -88,9 +89,6 @@ position = Vector2(576, 324.00003)
 scale = Vector2(1.4999999, 1.35)
 texture = ExtResource("1_d21ai")
 
-[node name="MobHolder" type="Node2D" parent="." unique_id=1653442453]
-position = Vector2(-6.1035156e-05, 0)
-
 [node name="CharacterBody2D" type="Area2D" parent="." unique_id=1778159156 groups=["Player"]]
 disable_mode = 2
 script = ExtResource("2_q6r6c")
@@ -103,6 +101,9 @@ sprite_frames = SubResource("SpriteFrames_0h7mo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=930577593]
 position = Vector2(1469, 350)
 shape = SubResource("CapsuleShape2D_302c4")
+
+[node name="MobHolder" type="Node2D" parent="." unique_id=1653442453]
+position = Vector2(-6.1035156e-05, 0)
 
 [node name="Fireball" type="Area2D" parent="." unique_id=1396776639 groups=["Mobs"]]
 position = Vector2(257, 219)
@@ -160,36 +161,54 @@ texture = ExtResource("15_d2bti")
 [node name="Node2D" type="Node2D" parent="." unique_id=296432812]
 script = ExtResource("14_k73cj")
 
-[node name="Dmg Up" type="Button" parent="Node2D" unique_id=1320798949]
+[node name="Teal" type="Sprite2D" parent="Node2D" unique_id=1800541930]
 visible = false
-offset_left = 186.0
-offset_top = 144.0
-offset_right = 450.0
-offset_bottom = 408.0
-disabled = true
-action_mode = 0
-icon = ExtResource("14_flf07")
-script = ExtResource("14_ta5nu")
+position = Vector2(830, 276)
+texture = ExtResource("17_rjqkl")
 
-[node name="Enemy Health Down" type="Button" parent="Node2D" unique_id=1496312758]
-visible = false
-offset_left = 442.0
-offset_top = 144.0
-offset_right = 706.0
-offset_bottom = 408.0
+[node name="Enemy Speed Down" type="Button" parent="Node2D/Teal" unique_id=1215128562]
+offset_left = -132.0
+offset_top = -130.0
+offset_right = 132.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("12_x0ka3")
+theme_override_font_sizes/font_size = 37
 disabled = true
-icon = ExtResource("16_k73cj")
+text = "Enemy Speed Down"
+script = ExtResource("18_7vxoj")
+
+[node name="Green" type="Sprite2D" parent="Node2D" unique_id=375615149]
+visible = false
+position = Vector2(566, 276)
+texture = ExtResource("16_k73cj")
+
+[node name="Enemy Health Down" type="Button" parent="Node2D/Green" unique_id=1496312758]
+offset_left = -132.0
+offset_top = -130.0
+offset_right = 132.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("12_x0ka3")
+theme_override_font_sizes/font_size = 37
+disabled = true
+text = "Enemy Health Down"
 script = ExtResource("16_fs4d3")
 
-[node name="Enemy Speed Down" type="Button" parent="Node2D" unique_id=1215128562]
+[node name="Red" type="Sprite2D" parent="Node2D" unique_id=737748664]
 visible = false
-offset_left = 698.0
-offset_top = 144.0
-offset_right = 962.0
-offset_bottom = 408.0
+position = Vector2(302, 276)
+texture = ExtResource("14_flf07")
+
+[node name="Dmg Up" type="Button" parent="Node2D/Red" unique_id=1320798949]
+offset_left = -132.0
+offset_top = -130.0
+offset_right = 132.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("12_x0ka3")
+theme_override_font_sizes/font_size = 37
 disabled = true
-icon = ExtResource("17_rjqkl")
-script = ExtResource("18_7vxoj")
+action_mode = 0
+text = "Damage Up"
+script = ExtResource("14_ta5nu")
 
 [node name="Cursor" type="Area2D" parent="." unique_id=1619218246]
 script = ExtResource("13_nr8wp")

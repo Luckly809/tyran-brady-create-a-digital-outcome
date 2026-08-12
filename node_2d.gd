@@ -2,9 +2,15 @@ extends Node2D
 
 @export var mob_scene : PackedScene
 @onready var fireball = $Fireball
-@onready var dmgUp = $"Node2D/Dmg Up"
-@onready var enemyHD = $"Node2D/Enemy Health Down"
-@onready var enemySD = $"Node2D/Enemy Speed Down"
+@onready var enemySD: Button = $"Node2D/Teal/Enemy Speed Down"
+@onready var enemyHD: Button = $"Node2D/Green/Enemy Health Down"
+@onready var dmgUp: Button = $"Node2D/Red/Dmg Up"
+@onready var teal: Sprite2D = $Node2D/Teal
+@onready var green: Sprite2D = $Node2D/Green
+@onready var red: Sprite2D = $Node2D/Red
+
+
+
 var timer = 1.0
 var toughness = 1.0
 var speed = 1
@@ -24,7 +30,6 @@ func _ready():
 func _process(_delta: float) -> void:
 	if score != score2:
 		score2 = score
-		upgradeProgress += 1
 	$Label.text = "Score : " + str(score)
 	if upgradeProgress == 30:
 		upgrade = true
@@ -70,9 +75,9 @@ func upgraded():
 
 func shop():
 	get_tree().paused = true
-	dmgUp.show()
-	enemyHD.show()
-	enemySD.show()
+	red.show()
+	green.show()
+	teal.show()
 	dmgUp.disabled = false
 	enemyHD.disabled = false
 	enemySD.disabled = false
@@ -81,9 +86,9 @@ func shop():
 func unshop():
 	get_tree().paused = false
 	
-	dmgUp.hide()
-	enemyHD.hide()
-	enemySD.hide()
+	red.hide()
+	green.hide()
+	teal.hide()
 	dmgUp.disabled = true
 	enemyHD.disabled = true
 	enemySD.disabled = true
