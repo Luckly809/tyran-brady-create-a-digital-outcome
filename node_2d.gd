@@ -8,6 +8,11 @@ extends Node2D
 @onready var teal: Sprite2D = $Node2D/Teal
 @onready var green: Sprite2D = $Node2D/Green
 @onready var red: Sprite2D = $Node2D/Red
+@onready var red2: Sprite2D = $Node2D/Red2
+@onready var fireball_2: Area2D = $Fireball2
+@onready var fireball_2Sprite: AnimatedSprite2D = $Fireball2/AnimatedSprite2D
+@onready var fireball_2Hitbox: CollisionShape2D = $Fireball2/CollisionShape2D2
+@onready var fireball_toggle: Button = $Node2D/Red2/fireballToggle
 
 
 
@@ -74,10 +79,13 @@ func upgraded():
 
 
 func shop():
+	disableFireball2()
 	get_tree().paused = true
 	red.show()
+	red2.show()
 	green.show()
 	teal.show()
+	fireball_toggle.disabled = false
 	dmgUp.disabled = false
 	enemyHD.disabled = false
 	enemySD.disabled = false
@@ -85,10 +93,11 @@ func shop():
 	
 func unshop():
 	get_tree().paused = false
-	
+	red2.hide()
 	red.hide()
 	green.hide()
 	teal.hide()
+	fireball_toggle.disabled = true
 	dmgUp.disabled = true
 	enemyHD.disabled = true
 	enemySD.disabled = true
@@ -108,3 +117,13 @@ func enemy_speed_down() -> void:
 	unshop()
 	speed *= 0.9
 	print(speed)
+	
+func fireball2():
+	unshop()
+	fireball_2Hitbox.disabled = false
+	fireball_2Sprite.show()
+
+func disableFireball2():
+	fireball_2Hitbox.disabled = true
+	fireball_2Sprite.hide()
+	
