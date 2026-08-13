@@ -10,10 +10,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if damaged:
+	if damaged && health > 0:
 		damaged = false
 		$Sprite2D.play("damage")
+		$CPUParticles2D.emitting = true
 		await get_tree().create_timer(0.2).timeout
+		$CPUParticles2D.emitting = false
 		$Sprite2D.play("default")
 	position += Vector2(1,0) * delta * speed
 	if health < 0:
