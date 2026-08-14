@@ -143,6 +143,21 @@ frame_progress = 0.41335732
 position = Vector2(1, -7)
 shape = SubResource("CircleShape2D_d21ai")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Fireball" unique_id=1031811024]
+position = Vector2(2, -8)
+rotation = 3.1415927
+speed_scale = 1.27
+explosiveness = 0.45
+randomness = 0.35
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 20.05
+gravity = Vector2(0, 0)
+initial_velocity_min = 199.82
+initial_velocity_max = 1000.0
+scale_amount_max = 10.9
+color = Color(1, 0.24705882, 0.22352941, 1)
+
 [node name="MobPath" type="Path2D" parent="." unique_id=360178161]
 position = Vector2(3, 83)
 scale = Vector2(1, 0.63803685)
