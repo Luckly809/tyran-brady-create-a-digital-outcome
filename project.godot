@@ -12,7 +12,7 @@ config_version=5
 
 config/name="TyranBrady Create a digital outcome"
 run/main_scene="uid://b4y8kfcjmid5v"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 
 [display]
 

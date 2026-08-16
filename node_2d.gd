@@ -13,6 +13,8 @@ extends Node2D
 @onready var fireball_2Sprite: AnimatedSprite2D = $Fireball2/AnimatedSprite2D
 @onready var fireball_2Hitbox: CollisionShape2D = $Fireball2/CollisionShape2D2
 @onready var fireball_toggle: Button = $Node2D/Red2/fireballToggle
+@onready var background_music: AudioStreamPlayer = $"Background/Background Music"
+@onready var pause_music: AudioStreamPlayer = $"Pause Music"
 
 
 
@@ -62,6 +64,8 @@ func _on_timer_timeout() -> void:
 
 
 func pause():
+	background_music.stop()
+	pause_music.play(0)
 	get_tree().paused = true
 	$DaPause.show()
 	await get_tree().create_timer(0.2).timeout
@@ -71,6 +75,8 @@ func pause():
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			$DaPause.hide()
 			get_tree().paused = false
+			pause_music.stop()
+			background_music.play()
 
 
 func upgraded():

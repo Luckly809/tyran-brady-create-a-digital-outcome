@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8vr5o17t5kup"
+path="res://.godot/imported/Bg music Triimmed.wav-f0d2b1087a0156248c2c253a828f5de7.sample"
+
+[deps]
+
+source_file="res://Bg music Triimmed.wav"
+dest_files=["res://.godot/imported/Bg music Triimmed.wav-f0d2b1087a0156248c2c253a828f5de7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gguu4"]
-radius = 0.0
+radius = 2.0
 height = 152.0
 
 [node name="Mob" type="Area2D" unique_id=1252571799 groups=["Mobs"]]

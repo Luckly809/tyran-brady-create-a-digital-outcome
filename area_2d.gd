@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	velocity += (get_local_mouse_position() * 0.75 * delta)
 	if velocity.length() > 0.1 * get_local_mouse_position().length():
 		velocity = velocity.normalized() * 15
-	position += velocity * (randf() + 1)
+	position += velocity * (randf()+1)
 	animated_sprite_2d.rotation = (position - oldPos).angle()
 	particles.rotation = (position - oldPos).angle() 
 	#particles.speed_scale = velocity.length()
