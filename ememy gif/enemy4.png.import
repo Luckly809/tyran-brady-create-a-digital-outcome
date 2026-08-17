@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfryq4aqml5c1"
-path="res://.godot/imported/U dead.png-c13ac5f3c09c5afaeec2441f66d5c0fa.ctex"
+uid="uid://nxowfw0vipij"
+path="res://.godot/imported/enemy4.png-0b15851b5d2e7c45e80b891e5654cdf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://U dead.png"
-dest_files=["res://.godot/imported/U dead.png-c13ac5f3c09c5afaeec2441f66d5c0fa.ctex"]
+source_file="res://ememy gif/enemy4.png"
+dest_files=["res://.godot/imported/enemy4.png-0b15851b5d2e7c45e80b891e5654cdf9.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b4y8kfcjmid5v"]
 
 [ext_resource type="Script" uid="uid://clext67qdqdte" path="res://Menu.gd" id="1_uubjt"]
-[ext_resource type="Texture2D" uid="uid://cyd047bh5wgja" path="res://Menu.png" id="2_5yleq"]
-[ext_resource type="Texture2D" uid="uid://bogr25xpcbn05" path="res://Menu-2.png" id="3_ylpcl"]
+[ext_resource type="Texture2D" uid="uid://cyd047bh5wgja" path="res://Menus/Menu.png" id="2_5yleq"]
+[ext_resource type="Texture2D" uid="uid://bogr25xpcbn05" path="res://Menus/Menu-2.png" id="3_ylpcl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bx8n8"]
 animations = [{
