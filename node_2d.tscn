@@ -37,7 +37,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_rj586")
 }],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -58,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": 1,
+"loop": true,
 "name": &"murder",
 "speed": 6.0
 }, {
@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_hqns4")
 }],
-"loop": 1,
+"loop": true,
 "name": &"run",
 "speed": 30.0
 }]
@@ -106,7 +106,7 @@ texture = ExtResource("1_d21ai")
 
 [node name="Background Music" type="AudioStreamPlayer" parent="Background" unique_id=886575223]
 stream = SubResource("AudioStreamWAV_e8dv2")
-volume_db = -10.731
+volume_db = 24.0
 autoplay = true
 mix_target = 1
 script = ExtResource("4_2nhjh")
@@ -167,6 +167,7 @@ shape = SubResource("CircleShape2D_d21ai")
 position = Vector2(2, -8)
 rotation = 3.1415927
 amount = 20
+lifetime = 0.47000000000000003
 speed_scale = 1.27
 explosiveness = 0.45
 randomness = 0.35
