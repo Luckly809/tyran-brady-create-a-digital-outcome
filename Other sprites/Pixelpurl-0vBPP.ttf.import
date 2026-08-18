@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://oig00iirrnok"
-path="res://.godot/imported/Pixelpurl-0vBPP.ttf-b73405370b3f74a4c48439cdea8078b5.fontdata"
+path="res://.godot/imported/Pixelpurl-0vBPP.ttf-f6c39bc005003d27e465e339f5ec7e7f.fontdata"
 
 [deps]
 
-source_file="res://Pixelpurl-0vBPP.ttf"
-dest_files=["res://.godot/imported/Pixelpurl-0vBPP.ttf-b73405370b3f74a4c48439cdea8078b5.fontdata"]
+source_file="res://Other sprites/Pixelpurl-0vBPP.ttf"
+dest_files=["res://.godot/imported/Pixelpurl-0vBPP.ttf-f6c39bc005003d27e465e339f5ec7e7f.fontdata"]
 
 [params]
 

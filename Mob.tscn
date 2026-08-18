@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bsndx0dr3jjov"]
 
-[ext_resource type="Script" uid="uid://d4k87jentekhi" path="res://rigid_body_2d.gd" id="1_r6b5h"]
+[ext_resource type="Script" uid="uid://d4k87jentekhi" path="res://Scripts/rigid_body_2d.gd" id="1_r6b5h"]
 [ext_resource type="Texture2D" uid="uid://d277kkctgdb54" path="res://ememy gif/frame_0_delay-0.5s.png" id="2_5bhu7"]
 [ext_resource type="Texture2D" uid="uid://nxowfw0vipij" path="res://ememy gif/enemy4.png" id="2_x4v8o"]
 [ext_resource type="Texture2D" uid="uid://bwnp17df0pwiq" path="res://ememy gif/frame_1_delay-0.5s.png" id="3_ejbti"]
-[ext_resource type="Texture2D" uid="uid://cu6wtshufd5bf" path="res://ememy gif/frame_2_delay-0.5s.png" id="4_ch7wj"]
-[ext_resource type="Texture2D" uid="uid://cyd6iftofkjtb" path="res://ememy gif/frame_3_delay-0.5s.png" id="5_x4v8o"]
-[ext_resource type="Texture2D" uid="uid://cfdjrt5cgdwfv" path="res://images.png" id="6_w71a0"]
-[ext_resource type="Texture2D" uid="uid://445vpfgymfhg" path="res://images.jpg" id="7_ch7wj"]
-[ext_resource type="Texture2D" uid="uid://d37bbrlkjeuqq" path="res://explo.jpg" id="8_x4v8o"]
+[ext_resource type="Texture2D" uid="uid://dnb7ggqllkwn6" path="res://ememy gif/frame_2_delay-0.5s.png" id="4_ch7wj"]
+[ext_resource type="Texture2D" uid="uid://bvlvuhwt6547l" path="res://ememy gif/frame_3_delay-0.5s.png" id="5_x4v8o"]
+[ext_resource type="Texture2D" uid="uid://cfdjrt5cgdwfv" path="res://Other sprites/images.png" id="6_w71a0"]
+[ext_resource type="Texture2D" uid="uid://445vpfgymfhg" path="res://Other sprites/images.jpg" id="7_ch7wj"]
+[ext_resource type="Texture2D" uid="uid://d37bbrlkjeuqq" path="res://Other sprites/explo.jpg" id="8_x4v8o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utplx"]
 animations = [{

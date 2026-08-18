@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnb7ggqllkwn6"
-path="res://.godot/imported/frame_2_delay-0.5s.png-24e241716f73658918080c4836d90ba0.ctex"
+uid="uid://cqg8fbipt45fd"
+path="res://.godot/imported/Teal.png-cc1a250bbff0835a9454947095f0197d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ememy gif/frame_2_delay-0.5s.png"
-dest_files=["res://.godot/imported/frame_2_delay-0.5s.png-24e241716f73658918080c4836d90ba0.ctex"]
+source_file="res://Other sprites/Teal.png"
+dest_files=["res://.godot/imported/Teal.png-cc1a250bbff0835a9454947095f0197d.ctex"]
 
 [params]
 

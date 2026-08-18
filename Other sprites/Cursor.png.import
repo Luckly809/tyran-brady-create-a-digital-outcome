@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjfiyxknauaae"
-path="res://.godot/imported/Fireball frame 2.png-61796fd8ccc7fd4fcee0a06a3921f0ae.ctex"
+uid="uid://d16ppb13wk7b0"
+path="res://.godot/imported/Cursor.png-38f2ce5198c4126cb7ff8875af2c4f57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fireball frame 2.png"
-dest_files=["res://.godot/imported/Fireball frame 2.png-61796fd8ccc7fd4fcee0a06a3921f0ae.ctex"]
+source_file="res://Other sprites/Cursor.png"
+dest_files=["res://.godot/imported/Cursor.png-38f2ce5198c4126cb7ff8875af2c4f57.ctex"]
 
 [params]
 
