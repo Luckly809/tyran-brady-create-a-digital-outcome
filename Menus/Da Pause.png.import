@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvlvuhwt6547l"
-path="res://.godot/imported/frame_3_delay-0.5s.png-eda70118a91b0da79b0a120a5e8bdbb6.ctex"
+uid="uid://biejdw82pfwb4"
+path="res://.godot/imported/Da Pause.png-0d5ca9b597c9fd45ca92dc49e4c917d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://frame_3_delay-0.5s.png"
-dest_files=["res://.godot/imported/frame_3_delay-0.5s.png-eda70118a91b0da79b0a120a5e8bdbb6.ctex"]
+source_file="res://Menus/Da Pause.png"
+dest_files=["res://.godot/imported/Da Pause.png-0d5ca9b597c9fd45ca92dc49e4c917d7.ctex"]
 
 [params]
 

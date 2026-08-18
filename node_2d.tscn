@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://d224ya7nx2yhx"]
 
-[ext_resource type="Texture2D" uid="uid://dsq75m1053hv4" path="res://Background (1).png" id="1_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dsq75m1053hv4" path="res://Menus/Background (1).png" id="1_d21ai"]
 [ext_resource type="Script" uid="uid://7qrnw55ywhe0" path="res://node_2d.gd" id="1_ir8iy"]
 [ext_resource type="PackedScene" uid="uid://bsndx0dr3jjov" path="res://Mob.tscn" id="2_4d7sh"]
 [ext_resource type="Script" uid="uid://b27n0gm0h0n7x" path="res://character_body_2d.gd" id="2_q6r6c"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cq5c1ne1x4yl6" path="res://Red.png" id="14_flf07"]
 [ext_resource type="Script" uid="uid://c7bjflivjgvhg" path="res://ButtonParent.gd" id="14_k73cj"]
 [ext_resource type="Script" uid="uid://odbw1u67b8nk" path="res://Dmg up.gd" id="14_ta5nu"]
-[ext_resource type="Texture2D" uid="uid://biejdw82pfwb4" path="res://Da Pause.png" id="15_d2bti"]
+[ext_resource type="Texture2D" uid="uid://biejdw82pfwb4" path="res://Menus/Da Pause.png" id="15_d2bti"]
 [ext_resource type="Script" uid="uid://dvdsbviayja58" path="res://enemy_health_down.gd" id="16_fs4d3"]
 [ext_resource type="Texture2D" uid="uid://b3n0ux00noepi" path="res://Green.png" id="16_k73cj"]
 [ext_resource type="Texture2D" uid="uid://cqg8fbipt45fd" path="res://Teal.png" id="17_rjqkl"]
