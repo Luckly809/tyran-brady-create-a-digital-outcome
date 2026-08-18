@@ -163,7 +163,7 @@ visible = false
 scale = Vector2(0.375, 0.375)
 sprite_frames = SubResource("SpriteFrames_2hxjc")
 animation = &"run"
-frame_progress = 0.8193419
+frame_progress = 0.7227038
 
 [node name="Fireball" type="Area2D" parent="." unique_id=1396776639]
 position = Vector2(257, 219)

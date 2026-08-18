@@ -10,12 +10,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_5yleq")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": ExtResource("3_ylpcl")
 }],
 "loop": true,
 "name": &"default",
-"speed": 1.0
+"speed": 0.3
 }]
 
 [node name="Node2D" type="Node2D" unique_id=973460629]
@@ -25,4 +25,4 @@ script = ExtResource("1_uubjt")
 position = Vector2(960, 539.99994)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_bx8n8")
-frame_progress = 0.5323452
+frame_progress = 0.5378781

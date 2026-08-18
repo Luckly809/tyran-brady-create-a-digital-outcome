@@ -6,9 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bwnp17df0pwiq" path="res://ememy gif/frame_1_delay-0.5s.png" id="3_ejbti"]
 [ext_resource type="Texture2D" uid="uid://dnb7ggqllkwn6" path="res://ememy gif/frame_2_delay-0.5s.png" id="4_ch7wj"]
 [ext_resource type="Texture2D" uid="uid://bvlvuhwt6547l" path="res://ememy gif/frame_3_delay-0.5s.png" id="5_x4v8o"]
-[ext_resource type="Texture2D" uid="uid://cfdjrt5cgdwfv" path="res://Other sprites/images.png" id="6_w71a0"]
-[ext_resource type="Texture2D" uid="uid://445vpfgymfhg" path="res://Other sprites/images.jpg" id="7_ch7wj"]
-[ext_resource type="Texture2D" uid="uid://d37bbrlkjeuqq" path="res://Other sprites/explo.jpg" id="8_x4v8o"]
+[ext_resource type="Texture2D" uid="uid://cue00exgcrbl1" path="res://ememy gif/deathSprite0.png" id="7_xqp27"]
+[ext_resource type="Texture2D" uid="uid://c27ndxapk6a27" path="res://ememy gif/deathSprite1.png" id="8_8qumo"]
+[ext_resource type="Texture2D" uid="uid://d3jgfjny7taht" path="res://ememy gif/deathSprite2.png" id="9_wkhi8"]
+[ext_resource type="Texture2D" uid="uid://bkg1cukememi5" path="res://ememy gif/deathSprite3.png" id="10_h0ooy"]
+[ext_resource type="Texture2D" uid="uid://q67ooddngs05" path="res://ememy gif/deathSprite4.png" id="11_051oo"]
+[ext_resource type="Texture2D" uid="uid://b26xyp1ll63m5" path="res://ememy gif/deathSprite5.png" id="12_rosvv"]
+[ext_resource type="Texture2D" uid="uid://borpdrjqvumuk" path="res://ememy gif/deathSprite6.png" id="13_60alf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utplx"]
 animations = [{
@@ -38,18 +42,39 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.4,
-"texture": ExtResource("6_w71a0")
+"duration": 1.0,
+"texture": ExtResource("7_xqp27")
 }, {
-"duration": 0.4,
-"texture": ExtResource("7_ch7wj")
+"duration": 1.0,
+"texture": ExtResource("8_8qumo")
 }, {
-"duration": 0.4,
-"texture": ExtResource("8_x4v8o")
+"duration": 1.0,
+"texture": ExtResource("9_wkhi8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h0ooy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_051oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rosvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60alf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60alf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60alf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_60alf")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
-"speed": 5.0
+"speed": 18.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gguu4"]
@@ -63,6 +88,8 @@ script = ExtResource("1_r6b5h")
 position = Vector2(-3.4999962, 83.499985)
 scale = Vector2(0.48437497, 0.55312496)
 sprite_frames = SubResource("SpriteFrames_utplx")
+animation = &"die"
+frame_progress = 0.1448538
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1379333468]
 position = Vector2(-1, 84)

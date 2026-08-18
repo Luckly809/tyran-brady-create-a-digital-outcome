@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 	if score != score2:
 		score2 = score
 	$Label.text = "Score : " + str(score)
-	if upgradeProgress == 30:
+	if upgradeProgress >= 30:
 		upgrade = true
 	if Input.is_action_just_pressed("pause"):
 		pause()
