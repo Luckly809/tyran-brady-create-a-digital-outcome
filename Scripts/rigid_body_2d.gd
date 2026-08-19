@@ -1,4 +1,7 @@
 extends Area2D
+@onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+
 var health = 9.5
 var damaged = false
 var speed = 150
@@ -11,14 +14,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if damaged && health > 0 && alive:
-		damaged = false
-		$Sprite2D.play("damage")
-		$CPUParticles2D.emitting = true
-		await get_tree().create_timer(0.2).timeout
-		$CPUParticles2D.emitting = false
-		$Sprite2D.play("default")
-	position += Vector2(1,0) * delta * speed
 	if health < 0 && alive:
 		alive = false
 		speed = 0
@@ -27,7 +22,16 @@ func _process(delta: float) -> void:
 		get_parent().get_parent().score += 1
 		get_parent().get_parent().upgradeProgress += 1
 		queue_free()
-		
+	if damaged && health > 0 && alive:
+		damaged = false
+		sprite.play("damage")
+		$CPUParticles2D.emitting = true
+		await get_tree().create_timer(0.2).timeout
+		$CPUParticles2D.emitting = false
+		sprite.play("default")
+		if alive == false:
+			sprite.play("die")
+	position += Vector2(1,0) * delta * speed
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
