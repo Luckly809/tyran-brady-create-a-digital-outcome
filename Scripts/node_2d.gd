@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var mob_scene : PackedScene
+@export var inst_fireball : PackedScene
 @onready var fireball = $Fireball
 @onready var enemySD: Button = $"Node2D/Teal/Enemy Speed Down"
 @onready var enemyHD: Button = $"Node2D/Green/Enemy Health Down"
@@ -128,6 +129,7 @@ func fireball2():
 	unshop()
 	fireball_2Hitbox.disabled = false
 	fireball_2Sprite.show()
+	inst_fireball.instantiate()
 
 func disableFireball2():
 	fireball_2Hitbox.disabled = true

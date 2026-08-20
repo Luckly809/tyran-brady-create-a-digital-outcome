@@ -25,7 +25,6 @@ func _process(_delta: float) -> void:
 	
 	
 func _input(event: InputEvent) -> void:
-	print(heldEnemies)
 	if event is InputEventMouseButton && charged:
 		for x in heldEnemies:
 			if x.alive:
