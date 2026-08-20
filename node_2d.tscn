@@ -106,8 +106,10 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="Gradient" id="Gradient_qk7f2"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_bx8n8"]
-radius = 22.0
+radius = 174.02586
 
 [node name="Node2D" type="Node2D" unique_id=1037522292]
 script = ExtResource("1_ir8iy")
@@ -324,8 +326,27 @@ justification_flags = 0
 [node name="Cursor" type="Area2D" parent="." unique_id=1619218246]
 script = ExtResource("13_nr8wp")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Cursor" unique_id=291284941]
+position = Vector2(2, -8)
+rotation = -3.1415925
+lifetime = 1.01
+speed_scale = 1.27
+randomness = 0.35
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 357.37
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 10.9
+color = Color(0.572258, 0.46328628, 0.9988888, 1)
+color_ramp = SubResource("Gradient_qk7f2")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor" unique_id=664124971]
+modulate = Color(1, 0.39607844, 1, 1)
 shape = SubResource("CircleShape2D_bx8n8")
+debug_color = Color(0.7578072, 0.45454103, 0, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="Cursor" unique_id=891856787]
 modulate = Color(1, 0.37254903, 0, 1)
@@ -333,9 +354,15 @@ position = Vector2(4.7683716e-07, 1.1920929e-07)
 scale = Vector2(0.41509435, 0.41509435)
 texture = ExtResource("14_d2bti")
 
+[node name="Timer" type="Timer" parent="Cursor" unique_id=1601780795]
+autostart = true
+
 [connection signal="finished" from="Background/Background Music" to="Background/Background Music" method="_on_finished"]
 [connection signal="area_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_body_entered"]
 [connection signal="area_entered" from="Fireball2" to="Fireball2" method="_on_fireball_area_entered"]
 [connection signal="area_entered" from="Fireball" to="Fireball" method="_on_fireball_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Cursor" to="Cursor" method="_on_area_entered"]
+[connection signal="area_exited" from="Cursor" to="Cursor" method="_on_area_exited"]
+[connection signal="timeout" from="Cursor/Timer" to="Cursor" method="_on_timer_timeout"]
