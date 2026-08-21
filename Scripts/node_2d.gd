@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var mob_scene : PackedScene
+@export var boss_scene : PackedScene
 @onready var fireball = $Fireball
 @onready var enemySD: Button = $"Node2D/Teal/Enemy Speed Down"
 @onready var enemyHD: Button = $"Node2D/Green/Enemy Health Down"
@@ -25,6 +26,7 @@ var score = 0
 var score2 = 0
 var upgradeProgress = 0
 var upgrade = false
+var paused = false
 
 
 
@@ -51,6 +53,7 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
+	var boss = boss_scene.instantiate()
 	var mob_spawn_location = $MobPath/MobSpawnLocation
 	mob_spawn_location.progress_ratio = randf()
 	mob.position = mob_spawn_location.position 
@@ -68,6 +71,7 @@ func pause():
 	pause_music.play(0)
 	get_tree().paused = true
 	$DaPause.show()
+	paused = true
 	await get_tree().create_timer(0.2).timeout
 	while get_tree().paused:
 		await get_tree().create_timer(0.1).timeout
@@ -75,6 +79,7 @@ func pause():
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			$DaPause.hide()
 			get_tree().paused = false
+			paused = false
 			pause_music.stop()
 			background_music.play()
 

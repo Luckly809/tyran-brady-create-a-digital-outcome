@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b27n0gm0h0n7x" path="res://Scripts/character_body_2d.gd" id="2_q6r6c"]
 [ext_resource type="Script" uid="uid://df3sqvdxf2pib" path="res://Scripts/area_2d.gd" id="3_0hol4"]
 [ext_resource type="AudioStream" uid="uid://tst750oqull7" path="res://Audio/Elevator-music.mp3" id="3_2nhjh"]
+[ext_resource type="PackedScene" uid="uid://bphsch7v4g56u" path="res://boss.tscn" id="3_ebxd8"]
 [ext_resource type="Texture2D" uid="uid://dnxviujxw8yx0" path="res://Other sprites/character2.png" id="3_rj586"]
 [ext_resource type="Script" uid="uid://dbjaw4v4i6qn4" path="res://Scripts/musicPlayer.gd" id="4_2nhjh"]
 [ext_resource type="Script" uid="uid://cjvm2dbbnfjm3" path="res://Scripts/pause_music.gd" id="4_bjha6"]
@@ -114,6 +115,7 @@ radius = 174.02586
 [node name="Node2D" type="Node2D" unique_id=1037522292]
 script = ExtResource("1_ir8iy")
 mob_scene = ExtResource("2_4d7sh")
+boss_scene = ExtResource("3_ebxd8")
 metadata/_edit_horizontal_guides_ = [400.0]
 metadata/_edit_vertical_guides_ = [570.0]
 
@@ -325,6 +327,10 @@ justification_flags = 0
 
 [node name="Cursor" type="Area2D" parent="." unique_id=1619218246]
 script = ExtResource("13_nr8wp")
+
+[node name="Polygon2D" type="Polygon2D" parent="Cursor" unique_id=2022621756]
+color = Color(0.5254902, 0, 0.5294118, 0.38431373)
+polygon = PackedVector2Array(0, -174, -45, -168, -87, -151, -123, -123, -151, -87, -168, -45, -174, 0, -168, 46, -151, 87, -123, 123, -87, 151, -45, 168, 0, 174, 45, 168, 87, 151, 123, 123, 151, 87, 168, 44, 174, 0, 168, -45, 151, -87, 123, -123, 87, -150, 45, -168)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Cursor" unique_id=291284941]
 position = Vector2(2, -8)

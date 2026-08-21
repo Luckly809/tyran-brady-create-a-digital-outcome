@@ -17,18 +17,18 @@ func _process(delta: float) -> void:
 	if health < 0 && alive:
 		alive = false
 		speed = 0
+		get_parent().get_parent().score += 10
+		get_parent().get_parent().upgradeProgress += 10
 		$Sprite2D.play("die")
-		await get_tree().create_timer(2).timeout
-		get_parent().get_parent().score += 1
-		get_parent().get_parent().upgradeProgress += 1
+		await get_tree().create_timer(5).timeout
 		queue_free()
 	if damaged && health > 0 && alive:
 		damaged = false
-		sprite.play("damage")
+		modulate = Color(1.0, 0.0, 0.0, 1.0)
 		$CPUParticles2D.emitting = true
 		await get_tree().create_timer(0.2).timeout
 		$CPUParticles2D.emitting = false
-		sprite.play("default")
+		modulate = Color(0.0, 0.0, 0.0, 1.0)
 		if alive == false:
 			sprite.play("die")
 	position += Vector2(1,0) * delta * speed
