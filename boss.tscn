@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bphsch7v4g56u"]
 
-[ext_resource type="Script" uid="uid://d4k87jentekhi" path="res://Scripts/rigid_body_2d.gd" id="1_o1i15"]
+[ext_resource type="Script" uid="uid://b5cq17jhko0p" path="res://boss.gd" id="1_o1i15"]
 [ext_resource type="Texture2D" uid="uid://cbbyuol7msb4h" path="res://Brute Animations/Brute0.png" id="2_we8h1"]
 [ext_resource type="Texture2D" uid="uid://o5cmy034wqdw" path="res://Brute Animations/Brute1.png" id="3_kvofc"]
 [ext_resource type="Texture2D" uid="uid://celaoruwm8fe4" path="res://Brute Animations/Brute2.png" id="4_ef0k6"]

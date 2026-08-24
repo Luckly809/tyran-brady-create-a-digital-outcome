@@ -35,7 +35,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && charged && root.paused == false:
 		for x in heldEnemies:
 			if x.alive:
-				x.health -= 10 * fireball.dmgMulti
+				x.health -= 10 * fireball.dmgMulti * heldEnemies.length
 				
 		charged = false
 		timer.wait_time = 1

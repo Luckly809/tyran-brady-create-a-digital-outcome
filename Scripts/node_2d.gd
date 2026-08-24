@@ -21,12 +21,13 @@ extends Node2D
 
 var timer = 1.0
 var toughness = 1.0
-var speed = 1
+var speed = 1.0
 var score = 0
 var score2 = 0
 var upgradeProgress = 0
 var upgrade = false
 var paused = false
+var bossDead = true
 
 
 
@@ -48,24 +49,40 @@ func _process(_delta: float) -> void:
 	if upgrade:
 		shop()
 		upgraded()
-
+	if score == 50 && bossDead|| score == 100 && bossDead|| score == 150 && bossDead|| score == 200 && bossDead|| score == 250 && bossDead|| score == 300 && bossDead|| score == 350 && bossDead:
+		spawnBoss()
+		bossDead = false
 
 
 func _on_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
-	var boss = boss_scene.instantiate()
+
 	var mob_spawn_location = $MobPath/MobSpawnLocation
+	
 	mob_spawn_location.progress_ratio = randf()
 	mob.position = mob_spawn_location.position 
+	
+
 	mob.health *= toughness
 	mob.speed *= speed
+	
+	
 	if timer != 0:
 		$Timer.wait_time = timer
 		timer = timer * 0.999
 		toughness *= 1.01
 	$MobHolder.add_child(mob)
+	
 
-
+func spawnBoss():
+	var boss = boss_scene.instantiate()
+	var boss_spawn_location = $MobPath/MobSpawnLocation
+	boss.position = boss_spawn_location.position
+	boss_spawn_location.progress_ratio = randf()
+	boss.speed *= speed/4
+	boss.health *= toughness
+	$MobHolder.add_child(boss)
+	
 func pause():
 	background_music.stop()
 	pause_music.play(0)
@@ -86,7 +103,7 @@ func pause():
 
 func upgraded():
 	upgrade = false
-	upgradeProgress = 0
+	upgradeProgress -= 30
 
 
 func shop():
