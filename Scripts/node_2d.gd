@@ -81,6 +81,7 @@ func spawnBoss():
 	boss_spawn_location.progress_ratio = randf()
 	boss.speed *= speed/4
 	boss.health *= toughness
+	boss.timer = timer
 	$MobHolder.add_child(boss)
 	
 func pause():

@@ -6,7 +6,7 @@ var health = 300
 var damaged = false
 var speed = 150.0
 var alive = true
-var timer = get_parent().get_parent().timer
+var timer = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Sprite2D.play("default")
