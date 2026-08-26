@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		speed = 0.0
 		get_parent().get_parent().score += 10
 		get_parent().get_parent().upgradeProgress += 10
-		$Sprite2D.play("die")
+		#$Sprite2D.play("die")
 		queue_free()
 	if damaged && health > 0 && alive:
 		damaged = false
@@ -38,5 +38,5 @@ func _process(delta: float) -> void:
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	#queue_free()
+	queue_free()
 	pass
