@@ -221,6 +221,7 @@ autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=1851335981]
 wait_time = 0.5
+autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=386598435]
 position = Vector2(576, 324)
@@ -369,6 +370,7 @@ autostart = true
 [connection signal="area_entered" from="Fireball2" to="Fireball2" method="_on_fireball_area_entered"]
 [connection signal="area_entered" from="Fireball" to="Fireball" method="_on_fireball_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="Cursor" method="_on_timer_2_timeout"]
 [connection signal="area_entered" from="Cursor" to="Cursor" method="_on_area_entered"]
 [connection signal="area_exited" from="Cursor" to="Cursor" method="_on_area_exited"]
 [connection signal="timeout" from="Cursor/Timer" to="Cursor" method="_on_timer_timeout"]

@@ -5,7 +5,7 @@ var charged = false
 @onready var fireball: Area2D = $"../Fireball"
 @onready var circle: Polygon2D = $Polygon2D
 @onready var root: Node2D = $".."
-
+var power = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -29,17 +29,18 @@ func _process(_delta: float) -> void:
 		circle.modulate = Color(0.439, 0.0, 0.69, 1.0)
 	else:
 		circle.modulate = Color(0.774, 0.204, 0.189, 1.0)
+
+
+
 func _input(event: InputEvent) -> void:
-	
-	print(heldEnemies)
 	if event is InputEventMouseButton && charged && root.paused == false:
 		for x in heldEnemies:
 			if x.alive:
-				x.health -= 10 * root.toughness/2
-				
+				x.health -= 2 * power
+				print(2*power)
 		charged = false
 		timer.wait_time = 1
-
+		power = 1
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Mobs"):
@@ -54,3 +55,7 @@ func _on_area_exited(area: Area2D) -> void:
 
 func _on_timer_timeout() -> void:
 	charged = true
+
+
+func _on_timer_2_timeout() -> void:
+	power += 1
