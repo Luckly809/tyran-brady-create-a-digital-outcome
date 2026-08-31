@@ -17,7 +17,6 @@ func _ready() -> void:
 	
 	
 func _process(_delta: float) -> void:
-	position = get_global_mouse_position()
 	for area in heldEnemies:
 		if charged:
 			area.modulate = Color(0.725, 0.431, 1.0, 1.0)
