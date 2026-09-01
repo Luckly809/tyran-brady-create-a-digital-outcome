@@ -16,6 +16,7 @@ extends Node2D
 @onready var fireball_toggle: Button = $Node2D/Red2/fireballToggle
 @onready var background_music: AudioStreamPlayer = $"Background/Background Music"
 @onready var pause_music: AudioStreamPlayer = $"Pause Music"
+@onready var hex_circle = $Hex_holder
 
 
 
@@ -28,13 +29,13 @@ var upgradeProgress = 0
 var upgrade = false
 var paused = false
 var bossDead = true
-
+var single = true
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	
+	$Hex_holder/HexCircle/Timer.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -45,7 +46,11 @@ func _process(_delta: float) -> void:
 		upgrade = true
 	if Input.is_action_just_pressed("pause"):
 		pause()
-	
+	if Input.is_action_pressed("Hex") && single:
+		hex_circle.show()
+		$Hex_holder/HexCircle/Timer.start()
+		timer/= 1.3
+		single = false
 	if upgrade:
 		shop()
 		upgraded()
