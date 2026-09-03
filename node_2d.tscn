@@ -225,9 +225,6 @@ autostart = true
 wait_time = 0.5
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=386598435]
-position = Vector2(576, 324)
-
 [node name="Label" type="Label" parent="." unique_id=736257245]
 offset_left = -375.0
 offset_top = -210.0
@@ -238,6 +235,45 @@ theme_override_font_sizes/font_size = 80
 text = "Score: "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=386598435]
+position = Vector2(576, 324)
+
+[node name="Hex_holder" type="Node2D" parent="." unique_id=1409352030]
+visible = false
+script = ExtResource("30_24dk6")
+
+[node name="HexCircle" type="Area2D" parent="Hex_holder" unique_id=1619218246]
+script = ExtResource("13_nr8wp")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hex_holder/HexCircle" unique_id=2022621756]
+color = Color(0.5254902, 0, 0.5294118, 0.38431373)
+polygon = PackedVector2Array(0, -174, -45, -168, -87, -151, -123, -123, -151, -87, -168, -45, -174, 0, -168, 46, -151, 87, -123, 123, -87, 151, -45, 168, 0, 174, 45, 168, 87, 151, 123, 123, 151, 87, 168, 44, 174, 0, 168, -45, 151, -87, 123, -123, 87, -150, 45, -168)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Hex_holder/HexCircle" unique_id=291284941]
+position = Vector2(2, -8)
+rotation = -3.1415925
+lifetime = 1.01
+speed_scale = 1.27
+randomness = 0.35
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 357.37
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 10.9
+color = Color(0.572258, 0.46328628, 0.9988888, 1)
+color_ramp = SubResource("Gradient_qk7f2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hex_holder/HexCircle" unique_id=664124971]
+modulate = Color(1, 0.39607844, 1, 1)
+shape = SubResource("CircleShape2D_bx8n8")
+debug_color = Color(0.7578072, 0.45454103, 0, 0.41960785)
+
+[node name="Timer" type="Timer" parent="Hex_holder/HexCircle" unique_id=1601780795]
+autostart = true
 
 [node name="DaPause" type="Sprite2D" parent="." unique_id=696242915]
 visible = false
@@ -310,23 +346,12 @@ offset_top = -130.0
 offset_right = 132.0
 offset_bottom = 134.0
 theme_override_fonts/font = ExtResource("12_x0ka3")
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 30
 disabled = true
 action_mode = 0
+text = "Double Fireball/Range Up"
 autowrap_trim_flags = 0
 script = ExtResource("20_ei405")
-
-[node name="Label" type="Label" parent="Node2D/Red2" unique_id=835777203]
-offset_left = -95.837
-offset_top = -110.08002
-offset_right = 81.92869
-offset_bottom = 107.51996
-theme_override_fonts/font = ExtResource("12_x0ka3")
-theme_override_font_sizes/font_size = 37
-text = "Double fireball"
-horizontal_alignment = 1
-vertical_alignment = 1
-justification_flags = 0
 
 [node name="Cursor" type="Node2D" parent="." unique_id=882650118]
 script = ExtResource("28_2u7jv")
@@ -336,42 +361,6 @@ modulate = Color(1, 0.37254903, 0, 1)
 position = Vector2(4.7683716e-07, 1.1920929e-07)
 scale = Vector2(0.41509435, 0.41509435)
 texture = ExtResource("14_d2bti")
-
-[node name="Hex_holder" type="Node2D" parent="." unique_id=1409352030]
-visible = false
-script = ExtResource("30_24dk6")
-
-[node name="HexCircle" type="Area2D" parent="Hex_holder" unique_id=1619218246]
-script = ExtResource("13_nr8wp")
-
-[node name="Polygon2D" type="Polygon2D" parent="Hex_holder/HexCircle" unique_id=2022621756]
-color = Color(0.5254902, 0, 0.5294118, 0.38431373)
-polygon = PackedVector2Array(0, -174, -45, -168, -87, -151, -123, -123, -151, -87, -168, -45, -174, 0, -168, 46, -151, 87, -123, 123, -87, 151, -45, 168, 0, 174, 45, 168, 87, 151, 123, 123, 151, 87, 168, 44, 174, 0, 168, -45, 151, -87, 123, -123, 87, -150, 45, -168)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Hex_holder/HexCircle" unique_id=291284941]
-position = Vector2(2, -8)
-rotation = -3.1415925
-lifetime = 1.01
-speed_scale = 1.27
-randomness = 0.35
-emission_shape = 1
-emission_sphere_radius = 0.01
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_max = 357.37
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_max = 10.9
-color = Color(0.572258, 0.46328628, 0.9988888, 1)
-color_ramp = SubResource("Gradient_qk7f2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hex_holder/HexCircle" unique_id=664124971]
-modulate = Color(1, 0.39607844, 1, 1)
-shape = SubResource("CircleShape2D_bx8n8")
-debug_color = Color(0.7578072, 0.45454103, 0, 0.41960785)
-
-[node name="Timer" type="Timer" parent="Hex_holder/HexCircle" unique_id=1601780795]
-autostart = true
 
 [connection signal="finished" from="Background/Background Music" to="Background/Background Music" method="_on_finished"]
 [connection signal="area_entered" from="CharacterBody2D" to="CharacterBody2D" method="_on_area_entered"]

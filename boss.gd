@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		if alive == false:
 			sprite.play("die")
 			
-			get_parent().get_parent().timer = timer * 5
+			get_parent().get_parent().timer = GlobalVar.timer
 			get_parent().get_parent().bossDead = true
 	position += Vector2(1,0) * delta * speed
 

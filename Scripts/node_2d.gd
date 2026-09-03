@@ -20,7 +20,7 @@ extends Node2D
 
 
 
-var timer = 1.0
+var timer = GlobalVar.timer
 var toughness = 1.0
 var speed = 1.0
 var score = 0
@@ -45,7 +45,8 @@ func _process(_delta: float) -> void:
 	if upgradeProgress >= 30:
 		upgrade = true
 	if Input.is_action_just_pressed("pause"):
-		pause()
+		#pause()
+		shop()
 	if Input.is_action_pressed("Hex") && single:
 		hex_circle.show()
 		$Hex_holder/HexCircle/Timer.start()
@@ -54,7 +55,7 @@ func _process(_delta: float) -> void:
 	if upgrade:
 		shop()
 		upgraded()
-	if score == 50 && bossDead|| score == 100 && bossDead|| score == 150 && bossDead|| score == 200 && bossDead|| score == 250 && bossDead|| score == 300 && bossDead|| score == 350 && bossDead:
+	if 1 > 1 && bossDead:
 		spawnBoss()
 		bossDead = false
 
@@ -86,7 +87,7 @@ func spawnBoss():
 	boss_spawn_location.progress_ratio = randf()
 	boss.speed *= speed/4
 	boss.health *= toughness
-	boss.timer = timer
+	GlobalVar.timer = timer
 	$MobHolder.add_child(boss)
 	
 func pause():
@@ -156,8 +157,10 @@ func fireball2():
 	unshop()
 	fireball_2Hitbox.disabled = false
 	fireball_2Sprite.show()
+	hex_circle.get_child(0).scale = Vector2(1.5,1.5)
 
 func disableFireball2():
 	fireball_2Hitbox.disabled = true
 	fireball_2Sprite.hide()
+	hex_circle.get_child(0).scale = Vector2(1,1)
 	
