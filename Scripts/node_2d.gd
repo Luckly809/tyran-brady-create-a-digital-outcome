@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var mob_scene : PackedScene
-@export var inst_fireball : PackedScene
+@export var boss_scene : PackedScene
 @onready var fireball = $Fireball
 @onready var enemySD: Button = $"Node2D/Teal/Enemy Speed Down"
 @onready var enemyHD: Button = $"Node2D/Green/Enemy Health Down"
@@ -16,59 +16,90 @@ extends Node2D
 @onready var fireball_toggle: Button = $Node2D/Red2/fireballToggle
 @onready var background_music: AudioStreamPlayer = $"Background/Background Music"
 @onready var pause_music: AudioStreamPlayer = $"Pause Music"
+@onready var hex_circle = $Hex_holder
 
 
 
-var timer = 1.0
+var timer = GlobalVar.timer
 var toughness = 1.0
-var speed = 1
+var speed = 1.0
 var score = 0
 var score2 = 0
 var upgradeProgress = 0
 var upgrade = false
-
-
+var paused = false
+var bossDead = true
+var single = true
+var spawn = (score / 50)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	
+	$Hex_holder/HexCircle/Timer.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if score != score2:
 		score2 = score
+	if bossDead == false:
+		spawn = 0
 	$Label.text = "Score : " + str(score)
 	if upgradeProgress >= 30:
 		upgrade = true
 	if Input.is_action_just_pressed("pause"):
-		pause()
-	
+		#pause()
+		#shop()
+		spawnBoss()
+	if Input.is_action_pressed("Hex") && single:
+		hex_circle.show()
+		$Hex_holder/HexCircle/Timer.start()
+		timer/= 1.3
+		single = false
 	if upgrade:
 		shop()
 		upgraded()
-
+	
+	if spawn > 50 :
+		spawn -= 50
+		spawnBoss()
+		bossDead = false
 
 
 func _on_timer_timeout() -> void:
 	var mob = mob_scene.instantiate()
+
 	var mob_spawn_location = $MobPath/MobSpawnLocation
+	
 	mob_spawn_location.progress_ratio = randf()
 	mob.position = mob_spawn_location.position 
+	
+
 	mob.health *= toughness
 	mob.speed *= speed
+	
+	
 	if timer != 0:
 		$Timer.wait_time = timer
 		timer = timer * 0.999
 		toughness *= 1.01
 	$MobHolder.add_child(mob)
+	
 
-
+func spawnBoss():
+	var boss = boss_scene.instantiate()
+	var boss_spawn_location = $MobPath/MobSpawnLocation
+	boss.position = boss_spawn_location.position
+	boss_spawn_location.progress_ratio = randf()
+	boss.speed *= speed/4
+	boss.health *= toughness
+	$MobHolder.add_child(boss)
+	
 func pause():
 	background_music.stop()
 	pause_music.play(0)
 	get_tree().paused = true
 	$DaPause.show()
+	paused = true
 	await get_tree().create_timer(0.2).timeout
 	while get_tree().paused:
 		await get_tree().create_timer(0.1).timeout
@@ -76,13 +107,14 @@ func pause():
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			$DaPause.hide()
 			get_tree().paused = false
+			paused = false
 			pause_music.stop()
 			background_music.play()
 
 
 func upgraded():
 	upgrade = false
-	upgradeProgress = 0
+	upgradeProgress -= 30
 
 
 func shop():
@@ -129,9 +161,10 @@ func fireball2():
 	unshop()
 	fireball_2Hitbox.disabled = false
 	fireball_2Sprite.show()
-	inst_fireball.instantiate()
+	hex_circle.get_child(0).scale = Vector2(1.5,1.5)
 
 func disableFireball2():
 	fireball_2Hitbox.disabled = true
 	fireball_2Sprite.hide()
+	hex_circle.get_child(0).scale = Vector2(1,1)
 	
