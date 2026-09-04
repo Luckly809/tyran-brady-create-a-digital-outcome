@@ -30,7 +30,7 @@ var upgrade = false
 var paused = false
 var bossDead = true
 var single = true
-
+var spawn = (score / 50)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,12 +41,15 @@ func _ready():
 func _process(_delta: float) -> void:
 	if score != score2:
 		score2 = score
+	if bossDead == false:
+		spawn = 0
 	$Label.text = "Score : " + str(score)
 	if upgradeProgress >= 30:
 		upgrade = true
 	if Input.is_action_just_pressed("pause"):
 		#pause()
-		shop()
+		#shop()
+		spawnBoss()
 	if Input.is_action_pressed("Hex") && single:
 		hex_circle.show()
 		$Hex_holder/HexCircle/Timer.start()
@@ -55,7 +58,9 @@ func _process(_delta: float) -> void:
 	if upgrade:
 		shop()
 		upgraded()
-	if 1 > 1 && bossDead:
+	
+	if spawn > 50 :
+		spawn -= 50
 		spawnBoss()
 		bossDead = false
 
@@ -87,7 +92,6 @@ func spawnBoss():
 	boss_spawn_location.progress_ratio = randf()
 	boss.speed *= speed/4
 	boss.health *= toughness
-	GlobalVar.timer = timer
 	$MobHolder.add_child(boss)
 	
 func pause():

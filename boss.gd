@@ -18,9 +18,11 @@ func _process(delta: float) -> void:
 	if health < 0 && alive:
 		alive = false
 		speed = 0.0
+		get_parent().get_parent().timer *= 0.25
 		get_parent().get_parent().score += 10
 		get_parent().get_parent().upgradeProgress += 10
 		#$Sprite2D.play("die")
+		get_parent().get_parent().timer = 1
 		queue_free()
 	if damaged && health > 0 && alive:
 		damaged = false
@@ -31,8 +33,6 @@ func _process(delta: float) -> void:
 		modulate = Color(0.5, 0.0, 0.0, 1.0)
 		if alive == false:
 			sprite.play("die")
-			
-			get_parent().get_parent().timer = GlobalVar.timer
 			get_parent().get_parent().bossDead = true
 	position += Vector2(1,0) * delta * speed
 

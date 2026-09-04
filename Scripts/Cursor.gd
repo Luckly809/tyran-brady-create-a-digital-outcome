@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Hex") && charged && root.paused == false:
 		for x in heldEnemies:
 			if x.alive:
-				x.health -= 10 * (power/2) + fireball.dmgMulti
+				x.health -= 2 * (power/2) + fireball.dmgMulti * heldEnemies.size()
 				print(2*power)
 		charged = false
 		timer.wait_time = 1

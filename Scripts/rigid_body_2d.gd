@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 		speed = 0
 		get_parent().get_parent().score += 1
 		get_parent().get_parent().upgradeProgress += 1
+		get_parent().get_parent().spawn += 1
+		
 		$Sprite2D.play("die")
 		await get_tree().create_timer(5).timeout
 		queue_free()
@@ -32,8 +34,3 @@ func _process(delta: float) -> void:
 		if alive == false:
 			sprite.play("die")
 	position += Vector2(1,0) * delta * speed
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	#queue_free()
-	pass
