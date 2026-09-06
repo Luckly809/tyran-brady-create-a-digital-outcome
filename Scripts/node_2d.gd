@@ -47,11 +47,12 @@ func _process(_delta: float) -> void:
 	if upgradeProgress >= 30:
 		upgrade = true
 	if Input.is_action_just_pressed("pause"):
-		#pause()
+		pause()
 		#shop()
-		spawnBoss()
+		#spawnBoss()
 	if Input.is_action_pressed("Hex") && single:
 		hex_circle.show()
+		hex_circle.position = Vector2(1466.0,358.0)
 		$Hex_holder/HexCircle/Timer.start()
 		timer/= 1.3
 		single = false

@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://q67ooddngs05" path="res://ememy gif/deathSprite4.png" id="11_051oo"]
 [ext_resource type="Texture2D" uid="uid://b26xyp1ll63m5" path="res://ememy gif/deathSprite5.png" id="12_rosvv"]
 [ext_resource type="Texture2D" uid="uid://borpdrjqvumuk" path="res://ememy gif/deathSprite6.png" id="13_60alf"]
+[ext_resource type="AudioStream" uid="uid://c48d8vxanklqg" path="res://Audio/Hit.wav" id="14_8qumo"]
+[ext_resource type="AudioStream" uid="uid://b0lbss0ffqwrj" path="res://Audio/Mutant.wav" id="15_wkhi8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utplx"]
 animations = [{
@@ -124,5 +126,12 @@ angle_max = 720.0
 scale_amount_min = 0.0
 scale_amount_max = 9.85
 color = Color(1, 0.1254902, 0.07450981, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=429582552]
+stream = ExtResource("14_8qumo")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=2084482234]
+stream = ExtResource("15_wkhi8")
+volume_db = -8.008
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

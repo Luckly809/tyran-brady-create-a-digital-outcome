@@ -235,12 +235,13 @@ theme_override_font_sizes/font_size = 80
 text = "Score: "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=386598435]
 position = Vector2(576, 324)
 
 [node name="Hex_holder" type="Node2D" parent="." unique_id=1409352030]
-visible = false
+position = Vector2(687, -563)
 script = ExtResource("30_24dk6")
 
 [node name="HexCircle" type="Area2D" parent="Hex_holder" unique_id=1619218246]
@@ -354,6 +355,7 @@ autowrap_trim_flags = 0
 script = ExtResource("20_ei405")
 
 [node name="Cursor" type="Node2D" parent="." unique_id=882650118]
+position = Vector2(-48, -407)
 script = ExtResource("28_2u7jv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cursor" unique_id=891856787]

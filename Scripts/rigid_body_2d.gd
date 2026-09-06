@@ -1,6 +1,8 @@
 extends Area2D
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_stream_player_2: AudioStreamPlayer = $AudioStreamPlayer2
 
 var health = 9.5
 var damaged = false
@@ -20,11 +22,12 @@ func _process(delta: float) -> void:
 		get_parent().get_parent().score += 1
 		get_parent().get_parent().upgradeProgress += 1
 		get_parent().get_parent().spawn += 1
-		
+		audio_stream_player.play(0)
 		$Sprite2D.play("die")
 		await get_tree().create_timer(5).timeout
 		queue_free()
 	if damaged && health > 0 && alive:
+		audio_stream_player_2.play(0)
 		damaged = false
 		modulate = Color(1.0, 0.0, 0.0, 1.0)
 		$CPUParticles2D.emitting = true
