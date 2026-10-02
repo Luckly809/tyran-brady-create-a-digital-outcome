@@ -129,6 +129,7 @@ color = Color(1, 0.1254902, 0.07450981, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=429582552]
 stream = ExtResource("14_8qumo")
+volume_db = -13.206
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=2084482234]
 stream = ExtResource("15_wkhi8")

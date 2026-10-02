@@ -133,7 +133,7 @@ texture = ExtResource("1_d21ai")
 
 [node name="Background Music" type="AudioStreamPlayer" parent="Background" unique_id=886575223]
 stream = SubResource("AudioStreamWAV_e8dv2")
-volume_db = 0.889
+volume_db = -8.191
 autoplay = true
 mix_target = 1
 script = ExtResource("4_2nhjh")
