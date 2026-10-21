@@ -33,14 +33,19 @@ func _process(_delta: float) -> void:
 			circle.modulate = Color(0.774, 0.204, 0.189, 1.0)
 	if charged:
 		circle.modulate = Color(0.439, 0.0, 0.69, 1.0)
+		$AnimatedSprite2D.stop()
+		timer.stop()
 	else:
 		circle.modulate = Color(0.774, 0.204, 0.189, 1.0)
 	if Input.is_action_pressed("Hex") && charged && root.paused == false:
+		$AnimatedSprite2D.play("charge")
+		timer.start()
 		for x in heldEnemies:
 			if x.alive:
 				x.health -= 2 * (power/2) + fireball.dmgMulti * heldEnemies.size()
 				print(2*power)
 		charged = false
+		
 		timer.wait_time = 1
 		power = 1
 
